@@ -24,8 +24,9 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onToggleComplete }) => {
                 <input
                     type="checkbox"
                     checked={task.completed}
-                    onChange={() => onToggleComplete(task.id)}
+                    onChange={() => onToggleComplete(task.id)} // Assicurati che `task.id` sia corretto
                 />
+
                 <span style={{ color: task.completed ? "#0a7b0a" : "#333" }}>
                     {task.completed ? "Completata" : "Non completata"}
                 </span>

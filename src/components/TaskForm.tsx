@@ -10,11 +10,13 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask }) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (title.trim()) {
-            onAddTask(title, description);
-            setTitle("");
-            setDescription("");
+        if (!title.trim()) {
+            alert("Il titolo è obbligatorio!");
+            return;
         }
+        onAddTask(title.trim(), description.trim() || undefined);
+        setTitle("");
+        setDescription("");
     };
 
     return (
@@ -66,7 +68,10 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask }) => {
                     color: "#fff",
                     border: "none",
                     cursor: "pointer",
+                    transition: "background-color 0.3s",
                 }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0056b3")}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#007bff")}
             >
                 Aggiungi Attività
             </button>
