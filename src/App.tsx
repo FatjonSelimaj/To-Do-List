@@ -9,7 +9,7 @@ const App: React.FC = () => {
   // Recupera tutte le attività dal backend
   const fetchTasks = async () => {
     try {
-      const response = await fetch("https://todo-list-bice-rho-61.vercel.app/tasks");
+      const response = await fetch("https://todo-list-lake-one-29.vercel.app/tasks");
       if (!response.ok) {
         throw new Error("Errore durante il recupero delle attività");
       }
@@ -23,7 +23,7 @@ const App: React.FC = () => {
   // Aggiungi una nuova attività
   const onAddTask = async (title: string, description?: string) => {
     try {
-      const response = await fetch("https://todo-list-bice-rho-61.vercel.app/tasks", {
+      const response = await fetch("https://todo-list-lake-one-29.vercel.app/tasks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const App: React.FC = () => {
   // Aggiorna lo stato di completamento
   const onToggleComplete = async (id: string) => {
     try {
-      const response = await fetch(`https://todo-list-bice-rho-61.vercel.app/tasks/${id}`, {
+      const response = await fetch(`https://todo-list-lake-one-29.vercel.app/tasks/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
